@@ -1,0 +1,36 @@
+name: Pipeline
+
+on: 
+  push:          # Ejecutar cuando haya un push
+
+jobs:
+  test-secuencial:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Run test 1
+      run: ./test1.sh
+
+    - name: Run test 2
+      run: ./test2.sh
+
+    - name: Run test 3
+      run: ./test3.sh
+
+  # Este job ejecuta los tres tests de forma paralela usando una matriz
+  test_paralelo:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        test_file: [test1.sh, test2.sh, test3.sh]
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Run test paralelo
+      run: ./${{ matrix.test_file }}
