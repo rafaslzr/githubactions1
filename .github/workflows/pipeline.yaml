@@ -1,7 +1,7 @@
 name: Pipeline
 
 on: 
-  push:          # Ejecutar cuando haya un push
+  push: # Ejecutar cuando haya un push
 
 jobs:
   test-secuencial:
