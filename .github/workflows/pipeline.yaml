@@ -1,7 +1,6 @@
-name: Pipeline
-
-on: 
-  push: # Ejecutar cuando haya un push
+name: Hackaton1
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push] # Ejecutar cuando haya un push
 
 jobs:
   test-secuencial:
